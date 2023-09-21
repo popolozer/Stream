@@ -858,7 +858,7 @@ object FStreamExtractor : FStreamProvider() {
             79,
         )
 
-        val foundUrl = html.select("div.videos > div.flex > div").firstOrNull { div ->
+ val foundUrl = html.select("body > div.container.container-fluid > div.table-responsive > table > tbody > tr:nth-child(1) > td:nth-child(1) > a").firstOrNull { div ->
             val typeWhiteList: (Int) -> Boolean = { wantedCategory ->
                 div.select("div.video-list-by").html().contains("?category=${wantedCategory}\"")
             }
